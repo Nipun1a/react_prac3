@@ -1,115 +1,71 @@
-import React from 'react'
-import './App.css'
-import User from './components/User';
-
-const App = () => {
-  const arr = [{User:'John Doe'},{User:'Jane Smith'},{User:'Alice Johnson'}];
- 
-  return (
-    <>
-    <h1>Practice </h1>
-      <div className="parent">
-        {arr.map(function(elem){
-          console.log(elem);
-          });
-        })}
-
-      </div>
-      </>
-  )
-}
-
-export default App
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import React from 'react'
-import './App.css'
+import React from "react";
+import "./App.css";
+import Card from "./components/Card.jsx";
 
 function App() {
- 
+  const jobs = [
+    {
+      logo: "https://imgs.search.brave.com/RXAhC7hMoa55jFecWzibah4VT5_vVbm7iPguxshhV2E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8xMTM3Ni8xMTM3/NjMwMi5wbmc_c2Vt/dD1haXNfd2hpdGVf/bGFiZWw",
+      company: "Amazon",
+      postedAt: "5 days ago",
+      jobtitle: "Senior UI/UX Designer",
+      type: "Full time",
+      level: "Senior",
+      salary: "$120/hr",
+      location: "Mumbai, India"
+    },
+    {
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+      company: "Google",
+      postedAt: "2 days ago",
+      jobtitle: "Junior Web Developer",
+      type: "Part time",
+      level: "Junior",
+      salary: "$80/hr",
+      location: "Bangalore, India"
+    },
+    {
+      logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+      company: "Microsoft",
+      postedAt: "1 day ago",
+      jobtitle: "Software Engineer",
+      type: "Full time",
+      level: "Mid",
+      salary: "$100/hr",
+      location: "Hyderabad, India"
+    },
+    {
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png",
+      company: "Facebook",
+      postedAt: "3 days ago",
+      jobtitle: "Data Scientist",
+      type: "Full time",
+      level: "Senior",
+      salary: "$120/hr",
+      location: "Mumbai, India"
+    },
+    {
+      logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+      company: "Apple",
+      postedAt: "4 days ago",
+      jobtitle: "Senior iOS Developer",
+      type: "Full time",
+      level: "Senior",
+      salary: "$130/hr",
+      location: "Bangalore, India"
+    }
+  ];
+
   return (
     <>
-    <h1>these are all the card </h1>
+      <h1>Job Listings</h1>
       <div className="parent">
-        
-        <div className="card">
-          <div className='top'>
-            <img className="logo" src="https://imgs.search.brave.com/RXAhC7hMoa55jFecWzibah4VT5_vVbm7iPguxshhV2E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8xMTM3Ni8xMTM3/NjMwMi5wbmc_c2Vt/dD1haXNfd2hpdGVf/bGFiZWw" alt="amz" />
-            <button className='btn'>Save</button>
-            <img className="save-logo" src="/image.png" />
-
-          </div>
-          <div className='center'>
-            <h3>Amazon <span>5 days ago</span></h3>
-            <h2>Senior UI/UX Designer</h2>
-            <div>
-              <h4>Part Time</h4>
-              <h4> Senior Level</h4>
-            </div>
-
-          </div>
-          <div className='bottom'>
-            <div>
-              
-                <h3>$120/hr</h3>
-                <p>Mumbai, India</p>
-             
-            </div>
-            <button className='btn'>Apply Now</button>
-
-
-          </div>
-          <div className='card'>
-          <div className='top'>
-            <img className="logo" src="https://imgs.search.brave.com/RXAhC7hMoa55jFecWzibah4VT5_vVbm7iPguxshhV2E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8xMTM3Ni8xMTM3/NjMwMi5wbmc_c2Vt/dD1haXNfd2hpdGVf/bGFiZWw" alt="amz" />
-            <button className='btn'>Save</button>
-            <img className="save-logo" src="/image.png" />
-
-          </div>
-          <div className='center'>
-            <h3>Amazon <span>5 days ago</span></h3>
-            <h2>Senior UI/UX Designer</h2>
-            <div>
-              <h4>Part Time</h4>
-              <h4> Senior Level</h4>
-            </div>
-
-          </div>
-          <div className='bottom'>
-            <div>
-              
-                <h3>$120/hr</h3>
-                <p>Mumbai, India</p>
-             
-            </div>
-            <button className='btn'>Apply Now</button>
-
-
-          </div>
-          </div>
-
-        </div>
-
+        {jobs.map((job, index) => (
+          <Card key={index} {...job} />
+        ))}
       </div>
     </>
-  )
+  );
 }
 
-export default App
-*/
+export default App;
