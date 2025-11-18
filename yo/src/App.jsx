@@ -12,7 +12,7 @@ function App() {
       type: "Full time",
       level: "Senior",
       salary: "$120/hr",
-      location: "Mumbai, India"
+      location: "Mumbai, India",
     },
     {
       logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
@@ -22,7 +22,7 @@ function App() {
       type: "Part time",
       level: "Junior",
       salary: "$80/hr",
-      location: "Bangalore, India"
+      location: "Bangalore, India",
     },
     {
       logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
@@ -32,7 +32,7 @@ function App() {
       type: "Full time",
       level: "Mid",
       salary: "$100/hr",
-      location: "Hyderabad, India"
+      location: "Hyderabad, India",
     },
     {
       logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png",
@@ -42,7 +42,7 @@ function App() {
       type: "Full time",
       level: "Senior",
       salary: "$120/hr",
-      location: "Mumbai, India"
+      location: "Mumbai, India",
     },
     {
       logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
@@ -52,13 +52,38 @@ function App() {
       type: "Full time",
       level: "Senior",
       salary: "$130/hr",
-      location: "Bangalore, India"
-    }
+      location: "Bangalore, India",
+    },
   ];
+
+  // Store values in localStorage
+  localStorage.setItem("user", "YUG");
+  localStorage.setItem("role", "admin");
+  localStorage.setItem("token", "abcd1234");
+
+  // User is a plain string so no need for JSON.parse
+  const user = localStorage.getItem("user");
+  console.log("User from localStorage:", user);
+
+  // Correct async fetch function
+  async function getData() {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      const data = await response.json();
+      console.log("Fetched data:", data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
 
   return (
     <>
       <h1>Job Listings</h1>
+
+      <button onClick={getData}>Get Data</button>
+
       <div className="parent">
         {jobs.map((job, index) => (
           <Card key={index} {...job} />
